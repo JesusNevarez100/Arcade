@@ -1,0 +1,34 @@
+The game will begin from the main menu, with print statemenst showing the selection in order from 1-5
+where the user is going to be asked to choose between 2 different games,
+Hangman and Minesweeper, stats, about, or exit. I intend to make the selection with if statements, where the user 
+simply inputs the number of the selection and a function takes them there.
+
+In the Hangman game I believe the random library will be necessary, since the word selction must be random.
+In a seperate function I can make a list of preselcted words, and return a rendom word with random.choic(list_of_words)
+In the hangman function I will call the function with random words as so, word=random_word()
+I can then use list comprehension to make the lenght of the word into astrics. 
+I will then use input functions to ask the user to guess a letter, from a predetermined string of the alphabet
+If the letter guess is not in the word the user looses a life. If the letter is in the word, I will use list comprehension
+to reveal the letter in prevoius list comprehension. 
+If the player runs of of the lives, the game ends and the loss is recorded onto a text file. 
+If the player guesses all the letter, he wins and the win gets recorded onto a text file.
+The low and High scores are also recorded into a text. The user is then asked if he wants to play again.
+
+In the Minesweeper game the first row of the borard could be build using list comprehension and the rest
+of the board could be constructed using recursion. The mines could be placed using the random library. 
+This could be done by definig row and col as random.ints in the range of zero and board size - 1.
+Whereever the bomb is randomly placed a -1 will be there, I will the use recursion to add one to every cell that
+has a bomb around it, for example if the cell has 2 bombs around it, the cells value will be 2. 
+A print board funtion will be created after the first board is created recursivley with the real values, so that
+the real values could be hidden under the symbol "O". 
+I will then create a helper function called reveal_board where the user inputs are sent. In this function the revealed
+list comprehension will be used to recursivley reveal all the neiboring cells with bombs around them.
+In this function if the user input inputs the cell where the bomb is at the game ends, and the loos is recorded
+onto a text file. If not the function continues. 
+The user input will be collected in a While True loop, so that aslong as the loop is broken the game continues. 
+I believe collection the coordinates seperatlly and collecting the action in a single variable is the way to go. 
+It does not make sence to collect the cordinate and flag in to seperate calls, since the user is never asked 
+to flag in the first place. So I will collect the row from 0-4 and the column 0-4 as (Y,X) respectivley. 
+And the user can choose to either reveal or flag the selected cell. 
+If the user reveals all cells without revealing a bomb he wins and the win is recorded onto a text file.
+The user is then asked if he want to play again. 
